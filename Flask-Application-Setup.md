@@ -1,5 +1,3 @@
-# adp-infra-takehome
-
 Simple Python application built using Flask.
 
 ## Pre-requisites
@@ -14,17 +12,17 @@ Simple Python application built using Flask.
 
 ## Installation of dependencies
 
-Change directory to cloned repository `autodesk-takehome` and use the package manager `pip3` to install the dependencies in `requirements.txt`
+Change directory to cloned repository `new-application` and use the package manager `pip3` to install the dependencies in `requirements.txt`
 
 ```bash
-cd <path to autodesk-takehome>
+cd <path to new-application>
 pip3 install -r requirements.txt
 ```
 
 ## How to run the application locally
 
 ```bash
-cd <path to autodesk-takehome>
+cd <path to new-application>
 python3 handlers/webapp.py
 ```
 
@@ -119,7 +117,7 @@ Expected Output:
 =============test session starts =============================================================
 platform darwin -- Python 3.8.5, pytest-7.2.0, pluggy-1.0.0 -- /Library/Frameworks/Python.framework/Versions/3.8/bin/python3.8
 cachedir: .pytest_cache
-rootdir: /Users/harshav/Desktop/autodesk-takehome/handlers
+rootdir: /Users/heathermary/Desktop/new-application/handlers
 collected 4 items
 
 test_webapp.py::test_get_request_success PASSED                                                                                                                                                      [ 25%]
@@ -137,14 +135,14 @@ test_webapp.py::test_post_route_failure_bad_request PASSED                      
 
 ```bash
 cd </path-of-Dockerfile>
-docker build -t adp:latest .
-docker run -p 5000:5000 adp:latest
+docker build -t new-app:latest .
+docker run -p 5000:5000 new-app:latest
 ```
 
 Expected Output:
 
 ```bash
-➜ docker run -p 5000:5000 adp:latest
+➜ docker run -p 5000:5000 new-app:latest
  * Serving Flask app 'webapp'
  * Debug mode: off
 2023-01-14 07:40:35 - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
@@ -156,13 +154,13 @@ Expected Output:
 2. To run the application with debug mode enabled in docker run the below command:
 
 ```bash
-docker run -p 5000:5000 -e FLASK_DEBUG=1 adp:latest
+docker run -p 5000:5000 -e FLASK_DEBUG=1 new-app:latest
 ```
 
 Expected Output:
 
 ```bash
-docker run -p 5000:5000 -e FLASK_DEBUG=1 adp:latest
+docker run -p 5000:5000 -e FLASK_DEBUG=1 new-app:latest
  * Serving Flask app 'webapp'
  * Debug mode: on
 2023-01-14 07:53:16 - INFO - WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
@@ -179,16 +177,16 @@ docker run -p 5000:5000 -e FLASK_DEBUG=1 adp:latest
 3. To run unit tests on the dockerized application, run the below command:
 
 ```bash
-docker run -p 5000:5000 --entrypoint "pytest" adp:latest
+docker run -p 5000:5000 --entrypoint "pytest" new-app:latest
 ```
 
 Expected Output:
 
 ```bash
-➜ docker run -p 5000:5000 --entrypoint "pytest" adp:latest
+➜ docker run -p 5000:5000 --entrypoint "pytest" new-app:latest
 ============================= test session starts ==============================
 platform linux -- Python 3.8.16, pytest-7.2.0, pluggy-1.0.0
-rootdir: /adp
+rootdir: /new-app
 collected 4 items
 
 handlers/test_webapp.py .... [100%]
